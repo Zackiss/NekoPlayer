@@ -26,14 +26,14 @@ const SearchBar = ({ tracks, trackIndex, showSide, onIndexChange}) => {
   useEffect(() => {
     function handleClickOutside(event) {
       const component = document.querySelector('.search-frame');
-      const title = document.querySelector('.title');
-      const artist = document.querySelector('.artist');
+      const search = document.querySelector('.search');
+      const back = document.querySelector(".button-back")
 
-      if (isVisible && component && !component.contains(event.target) && (title.contains(event.target) || 
-          artist.contains(event.target))) {
+      if (isVisible && component && component.contains(event.target) && !search.contains(event.target)) {
         setIsVisible(false);
-      } else if (!isVisible && component && (component.contains(event.target) || 
-                 artist.contains(event.target) || title.contains(event.target))) {
+      } else if (!isVisible && component && component.contains(event.target) && !search.contains(event.target)) {
+        setIsVisible(true);
+      } else if (!isVisible && component && back && back.contains(event.target)) {
         setIsVisible(true);
       }
     }

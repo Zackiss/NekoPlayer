@@ -1,12 +1,54 @@
 import React from "react";
+import { useState, useEffect } from "react";
+
 
 const AudioControls = ({
   isPlaying,
   onPlayPauseClick,
   onPrevClick,
-  onNextClick
-}) => (
-  <div className="audio-controls">
+  onNextClick,
+  swapBackAlbum
+}) => {
+  const [pressed, setPressed] = useState(false);
+  const [showButtonBack, setButtonBack] = useState(false);
+  const [startShown, setStartShown] = useState(false);
+
+  const mouseDown = (press) => {
+    setPressed(press);
+    setStartShown(press);
+  }
+  
+  const mouseUp = (press) => {
+    setPressed(press);
+    setStartShown(press);
+  }
+
+  //handleLongPress
+  useEffect(() => {
+    const timer = pressed
+      ? setTimeout(() => {
+          console.log(pressed, "got pressed!");
+          swapBackAlbum();
+        }, 2150)
+      : null;
+    return () => {
+      setButtonBack(false);
+      clearTimeout(timer);
+    }
+  }, [pressed]);
+
+  useEffect(() => {
+    const timer_ = startShown
+      ? setTimeout(() => {
+          setButtonBack(startShown);
+          console.log(startShown, "got shown!");
+        }, 600)
+      : null;
+    return () => clearTimeout(timer_);
+  }, [pressed]);
+
+  return (
+    <div className="audio-controls">
     <button
       type="button"
       className="prev"
@@ -33,8 +75,14 @@ const AudioControls = ({
         type="button"
         className="play"
         onClick={() => onPlayPauseClick(true)}
+        onMouseDown={() => mouseDown(true)}
+        onMouseUp={() => mouseUp(false)}
         aria-label="Play"
       >
+        <button 
+          className={showButtonBack ? "button-back" : "hidden"}
+        >
+        </button> 
       </button>
     )}
     <button
@@ -45,6 +93,7 @@ const AudioControls = ({
     >
     </button>
   </div>
-);
+  )
+}
 
 export default AudioControls;
