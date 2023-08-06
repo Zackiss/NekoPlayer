@@ -1,7 +1,7 @@
 <h1 align="center">🎵 Modern Serverless Music Web Player - Neko Player</h1>
 
 <p align="center">
-  <img src="[demo-screenshot.png](https://github.com/Zackiss/NekoPlayer/blob/main/preview.png)" alt="Demo Screenshot">
+  <img src="https://github.com/Zackiss/NekoPlayer/blob/main/preview.png" alt="Demo Screenshot">
 </p>
 
 <p align="center">
