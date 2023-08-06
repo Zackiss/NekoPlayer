@@ -18,7 +18,7 @@
 
 ## Demo
 
-You can check out the live demo of the music web player [here](https://your-demo-link).
+You can check out the live demo of the music web player [here](http://www.nekohouse.fun:3000/).
 
 ## Features
 
