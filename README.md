@@ -47,14 +47,14 @@ You can check out the live demo of the music web player [here](http://www.nekoho
    cd neko-player
    ```
    
-4. Clone the repository:
+3. Clone the repository:
 
    ```bash
    git clone https://github.com/Zackiss/NekoPlayer.git
    ```
    
-5. Copy the repository, paste and cover the new React app you have just build if needed.
-6. It is no need to download any dependencies, the project is managed to implement with pure React Native
+4. Copy the repository, paste and cover the new React app you have just build if needed.
+5. It is no need to download any dependencies, the project is managed to implement with pure React Native
 
 ## Usage
 
