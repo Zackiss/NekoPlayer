@@ -35,7 +35,7 @@ You can check out the live demo of the music web player [here](http://www.nekoho
 
 ## Installation
 
-1.Open
+1. Open
 
    ```bash
    npx create-react-app neko-player
