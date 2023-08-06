@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <em>A serverless music web player with album covers, modern player, and random background, built using React.</em>
+  <em>A serverless music web player with album covers and random background, built using React.</em>
 </p>
 
 <p align="center">
