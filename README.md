@@ -67,6 +67,7 @@ You can check out the live demo of the music web player [here](http://www.nekoho
 2. Open your web browser and visit `http://localhost:3000` to access the music web player.
 
 3. Customize the player by modifying the code in the `src` directory to fit your specific needs.
+4. Add and delete the music by modifying `track.js` if needed. (You can grab the content of `audioSrc` from OneDrive music embeddings)
 
 ## License
 
