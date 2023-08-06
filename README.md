@@ -56,7 +56,7 @@ You can check out the live demo of the music web player [here](http://www.nekoho
    ```
    
 4. Copy the repository, paste and cover the new React app you have just built.
-5. It is no need to download any dependencies, the project is managed to implement with pure React Native
+5. It is no need to download any dependencies other than that, the project is managed to implement with pure React Native
 
 ## Usage
 
