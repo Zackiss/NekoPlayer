@@ -19,6 +19,7 @@
 ## Demo
 
 You can check out the live demo of the music web player [here](http://www.nekohouse.fun:3000/).
+🌟 If you find this project useful or interesting, please consider giving it a star on GitHub! Your support is greatly appreciated! 🌟
 
 ## Features
 
