@@ -9,17 +9,13 @@ import ScrollAlbum from './ScrollAlbum'
 function App() {
   const [loading, setLoading] = useState(true);
   const [albumPage, setAlbumPage] = useState(true);
-  const [albumIndex, setAlbumIndex] = useState(0);
   const [trackIndex, setTrackIndex] = useState(0);
   const [showSide, setShowSide] = useState(false);
   const [tracks, setTracks] = useState(albums[0].tracks)
+  const [backgroundLoaded, setBackgroundLoaded] = useState(false);
 
   const handleTrackIndex = (num) => {
     setTrackIndex(num);
-  }
-
-  const handleShowSide = (show) => {
-    setShowSide(!show)
   }
 
   const handleSwapToAlbum = (albumIndex) => {
@@ -32,11 +28,22 @@ function App() {
   }
 
   useEffect(() => {
-    // Simulate loading time
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+    const backgroundImage = new Image();
+    backgroundImage.src = 'https://source.unsplash.com/random/1920x1080/?wallpaper,landscape';
+
+    backgroundImage.onload = () => {
+      setBackgroundLoaded(true);
+    };
   }, []);
+
+  useEffect(() => {
+    // Run your function after the background image has loaded
+    if (backgroundLoaded) {
+      console.log('Background image loaded');
+      setLoading(false);
+      // Run your function here
+    }
+  }, [backgroundLoaded]);
   
   return (
     <div className="App">

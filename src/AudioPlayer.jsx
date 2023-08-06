@@ -3,10 +3,7 @@ import AudioControls from "./AudioControls";
 import Backdrop from "./Backdrop";
 import "./styles.css";
 
-/*
- * Read the blog post here:
- * https://letsbuildui.dev/articles/building-an-audio-player-with-react-hooks
- */
+
 const AudioPlayer = ({ tracks, trackIndex, onIndexChange, swapBackAlbum}) => {
   // State
   const [trackProgress, setTrackProgress] = useState(0);
@@ -18,6 +15,7 @@ const AudioPlayer = ({ tracks, trackIndex, onIndexChange, swapBackAlbum}) => {
   // Refs
   const db_url = 'https://onedrive.live.com/download?';
   const audioRef = useRef(new Audio(db_url + audioSrc));
+  audioRef.current.preload = "none";
   const intervalRef = useRef();
   const isReady = useRef(false);
 
@@ -34,7 +32,6 @@ const AudioPlayer = ({ tracks, trackIndex, onIndexChange, swapBackAlbum}) => {
   const startTimer = () => {
     // Clear any timers already running
     clearInterval(intervalRef.current);
-
     intervalRef.current = setInterval(() => {
       if (audioRef.current.ended) {
         toNextTrack();
@@ -79,11 +76,9 @@ const AudioPlayer = ({ tracks, trackIndex, onIndexChange, swapBackAlbum}) => {
     if (isPlaying) {
       audioRef.current.play();
       startTimer();
-    } else {
-      if (audioRef.current.readyState === HTMLMediaElement.HAVE_FUTURE_DATA || 
-        audioRef.current.readyState === HTMLMediaElement.HAVE_ENOUGH_DATA) {
+    } else if (audioRef.current.readyState === HTMLMediaElement.HAVE_FUTURE_DATA || 
+               audioRef.current.readyState === HTMLMediaElement.HAVE_ENOUGH_DATA) {
         audioRef.current.pause();
-      }
     }
   }, [isPlaying]);
 
@@ -92,6 +87,7 @@ const AudioPlayer = ({ tracks, trackIndex, onIndexChange, swapBackAlbum}) => {
     audioRef.current.pause();
 
     audioRef.current = new Audio(db_url + audioSrc);
+    audioRef.current.preload = "none";
     setTrackProgress(audioRef.current.currentTime);
 
     if (isReady.current) {

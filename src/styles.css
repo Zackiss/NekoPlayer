@@ -11,7 +11,10 @@ html {
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
   background: var(--active-color);
-  transition: background 0.4s ease;
+  background-image: url('https://source.unsplash.com/random/1920x1080/?wallpaper,landscape');
+  background-size: cover;
+  background-position:50% 50%;
+  image-rendering: pixelated;
 }
 
 button {
@@ -28,55 +31,78 @@ table {
 .tb-content {
   height: 580px;
   border-width: 0px;
-  padding-right: 20px;
+  padding-right: 25px;
   overflow-y: scroll;
-  scrollbar-color: var(--active-color) rgba(0,0,0,0);
+  scrollbar-color: rgba(255, 255, 255, .55) transparent;
+}
+
+@media (max-width: 768px) {
+  .tb-content {
+    height: 85vh;
+    border-width: 0px;
+    padding-right: 20px;
+    overflow-y: scroll;
+    scrollbar-color: rgba(255, 255, 255, .55) transparent;
+  }
 }
 
 .tb-content::-webkit-scrollbar {
+  -webkit-appearance: none;
   width: 5px;
   height: 5px;
 }
 
-.tb-content::-webkit-scrollbar-track-piece  {
-  background-color: rgba(0,0,0,0);
-}
-
-.tb-content::-webkit-scrollbar-thumb:vertical {
-  background-color: var(--active-color);
-  border-radius: 5px;
-}
-
-thread {
-  padding: 10px;
-  border-radius: 10px;
-  background-color: var(--active-color);;
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
-
-thread::-webkit-scrollbar {
+.tb-content::-webkit-scrollbar-track  {
+  background-color: transparent;
   display: none;
 }
 
-td {
+.tb-content::-webkit-scrollbar-thumb:vertical {
+  background-color: rgba(255, 255, 255, .55);
+  border-radius: 5px;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.left-td {
   padding: 15px;
   text-align: center;
-  overflow-x: hidden;
   font-size: 17px;
   font-weight: 300;
-  color: #fff;
+  color: rgba(52, 52, 52, 0.8);
   cursor: pointer;
+  border-collapse: separate; 
+
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+  background-color: rgba(255, 255, 255, .55);
+  height:100%;
+  align-items: center;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .rest-td {
   padding: 15px;
   text-align: center;
-  overflow-x: hidden;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 300;
-  color: #ffffff;
+  color: rgba(52, 52, 52, 0.8);
   cursor: pointer;
+  border-collapse: separate; 
+
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  background-color: rgba(255, 255, 255, .55);
+  height:100%;
+  align-items: center;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .search-frame {
@@ -162,6 +188,9 @@ input[type="range"]::-ms-thumb {
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   color: var(--white);
+
+  -webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
 }
 
 .splash {
@@ -201,12 +230,14 @@ input[type="range"]::-ms-thumb {
   font-weight: 700;
   margin-bottom: 4px;
   color: rgba(255, 255, 255, .85);
+  cursor: pointer;
 }
 
 .artist {
   font-weight: 300;
   margin-top: 0;
   color: rgba(255, 255, 255, .85);
+  cursor: pointer;
 }
 
 .audio-controls {
@@ -321,6 +352,7 @@ input[type="range"]::-ms-thumb {
 .scroll-items {
   position: relative;
   -webkit-mask-image: linear-gradient(to right,#0000,#000,#000,#0000);
+  touch-action: none;
   width: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -335,7 +367,8 @@ input[type="range"]::-ms-thumb {
 
 .scroll-items>div {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.8);
+  touch-action: none;
+  background: transparent;
   min-height: 400px;
   min-width: 400px;
   max-height: 400px;
@@ -343,40 +376,79 @@ input[type="range"]::-ms-thumb {
 
   margin: 2em 1em;
   aspect-ratio: 1;
-  border-radius: 10px;
-  box-shadow: 0 0 5px 5px rgba(173, 173, 173, 0.3);
-  @media screen and (max-width: 500px) {
-    min-height: 200px;
-    min-width: 200px;
-    max-height: 200px;
-    max-width: 200px;
+  box-shadow: 0 0 5px 5px rgba(52, 52, 52, 0.3);
+}
+
+.scroll-items>.no-image {
+  min-height: 400px;
+  min-width: 400px;
+  max-height: 400px;
+  max-width: 400px;
+
+  touch-action: none;
+  background: transparent;
+  cursor: default;
+  box-shadow: none;
+}
+
+@media (max-width: 767px) {
+  .scroll-items>div {
+    display: inline-block;
+    background: transparent;
+    min-height: 250px;
+    min-width: 250px;
+    max-height: 250px;
+    max-width: 250px;
+  
+    touch-action: none;
+    margin: 5em 1em;
+    aspect-ratio: 1;
+    box-shadow: 0 0 5px 5px rgba(52, 52, 52, 0.3);
+  }
+}
+
+@media (max-width: 767px) {
+  .scroll-items>.no-image {
+    min-height: 250px;
+    min-width: 250px;
+    max-height: 250px;
+    max-width: 250px;
+
+    touch-action: none;
+    background: transparent;
+    cursor: default;
+    box-shadow: none;
   }
 }
 
 .scroll-items img {
   height: 100%;
   width: 100%;
-
-  object-fit: contain;
+  touch-action: none;
+  object-fit: cover;
 }
 
 .scroll-items.active {
   cursor: grabbing;
   cursor: -webkit-grabbing;
+  touch-action: none;
   transform: scale(1);
 }
 
 ::-webkit-scrollbar{
   height: 16px;
+  display: none;
 }
 
 ::-webkit-scrollbar-track{
   background-color: #f5f5f5;
+  display: none;
 }
 
 ::-webkit-scrollbar-thumb{
-  background-color: rgb(128, 215, 239);
+  background-color: rgba(255, 255, 255, .55);
   border-radius: 10px;
+  display: none;
 }
 
 @keyframes fill {

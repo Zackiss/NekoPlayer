@@ -79,10 +79,10 @@ const AudioControls = ({
         onMouseUp={() => mouseUp(false)}
         aria-label="Play"
       >
-        <button 
+        <div 
           className={showButtonBack ? "button-back" : "hidden"}
         >
-        </button> 
+        </div> 
       </button>
     )}
     <button
