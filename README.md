@@ -35,7 +35,7 @@ You can check out the live demo of the music web player [here](http://www.nekoho
 
 ## Installation
 
-1. Open
+1. Create an empty React Native project:
 
    ```bash
    npx create-react-app neko-player
