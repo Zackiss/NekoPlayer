@@ -23,7 +23,7 @@ You can check out the live demo of the music web player [here](http://www.nekoho
 ## Features
 
 - 🎧 Play music tracks directly in the web browser
-- 📀 Random album covers for each track
+- 📀 Random background for each refresh
 - 🎵 Shuffle and repeat functionality
 - ⏯️ Play, pause, and skip tracks
 - 🔍 Search for specific songs or artists
