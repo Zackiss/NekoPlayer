@@ -71,4 +71,3 @@ You can check out the live demo of the music web player [here](http://www.nekoho
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
